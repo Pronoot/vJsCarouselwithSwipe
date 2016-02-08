@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Carousel</title>
+        <link href="styles/main.css" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    </head>
+    <body>
+    <!-- <button onclick="myFunction()">Click me</button> -->
+        <div class="container"> 
+            <div class="viewPort"></div>
+            <div class="cardsContainer">
+                <div class="cardItem active">
+                    <div class="cardItemTopPart">
+                        <div class="cardTopBg">
+                        <div class="likes"><span class="fa fa-heart greenFont"></span>80%</div>
+                        <div class="MoreInfo">
+                            <div class="transCont"> </div>
+                            <div class="infoContainer">
+                                <div class="mi_Title mi_row">Corner Bakery Cafe</div>
+                                <div class="mi_Cat mi_row  ">Bakery  <span class="ratings"><span class="greenFont ">$$$</span>$$</span></div>
+                                <div class="mi_Location mi_row "><span class="fa fa-location-arrow ratings greenFont"></span>Bellandur - 1.4 miles</div>
+                                <div class="mi_Rate mi_row"><span class="ratings"><span class="greenFont">&#9733;&#9733;</span>&#9734;&#9734;&#9734;</span> 22 ratings</div>
+                            </div>                           
+                        </div>
+                        </div>
+                    </div>
+                    <div class="cardItemMiddlePart">
+                        <div class="likeButton"><span class="fa fa-heart-o greenFont"></span></div>
+                        <div class="descContainer"> Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description </div>
+                        
+                    </div>
+                    <div class="cardItemBottomPart cardActions">                            
+                        <div class="cardAction">
+                            <div><span class="fa fa-times"></span></div>
+                            <div class="actText">Dismiss</div>
+                        </div>
+                        <div class="cardAction">
+                            <div><span class="fa fa-bookmark-o"></span></div>
+                            <div class="actText">Save</div>
+                        </div>
+                        <div class="cardAction">
+                            <div><span class="fa fa-star-o"></span></div>
+                            <div class="actText">Rate</div>
+                        </div>
+                    </div> 
+                </div>
+                <div class="cardItem">
+                    <div class="cardItemTopPart">
+                        <div class="cardTopBg">
+                        <div class="likes">80%</div>
+                        <div class="MoreInfo">
+                            <div class="transCont"> </div>
+                            <div class="infoContainer">
+                                <div class="mi_Title mi_row">Title</div>
+                                <div class="mi_Cat mi_row">Category</div>
+                                <div class="mi_Location mi_row">Location</div>
+                                <div class="mi_Rate mi_row">Ratings</div>
+                            </div>                           
+                        </div>
+                        </div>
+                    </div>
+                    <div class="cardItemMiddlePart">
+                        Description
+                    </div>
+                    <div class="cardItemBottomPart cardActions">                            
+                        <div class="cardAction">Dismiss</div>
+                        <div class="cardAction">Save</div>
+                        <div class="cardAction">Rate</div>
+                    </div>
+                </div>
+                 
+            </div>
+        </div>
+        <script>
+            var activeCard = document.getElementsByClassName('active')[0];
+            var cardContainer = document.getElementsByClassName('cardsContainer')[0];
+            var cards = document.getElementsByClassName('cardItem');
+            for(var i = 0; i < cards.length; i++) {
+                var card = cards[i];
+                card.onclick = function(clickedCard){                    
+                    activeCard.classList.remove('active');
+                    clickedCard.currentTarget.classList.add('active');
+                    activeCard = clickedCard.currentTarget;
+                    leftValue = 40 -activeCard.offsetLeft;
+                    cardContainer.style.left = leftValue + "px";
+                }
+            }
+
+            document.addEventListener('touchstart', handleTouchStart, false);        
+            document.addEventListener('touchmove', handleTouchMove, false);
+
+            var xDown = null;                                                        
+            var yDown = null;                                                        
+
+            function handleTouchStart(evt) {                                         
+                xDown = evt.touches[0].clientX;                                      
+                yDown = evt.touches[0].clientY;                                      
+            };                                                
+            function handleTouchMove(evt) {
+                if ( ! xDown || ! yDown ) {
+                    return;
+                }
+                var xUp = evt.touches[0].clientX;                                    
+                var yUp = evt.touches[0].clientY;
+                var xDiff = xDown - xUp;
+                var yDiff = yDown - yUp;
+                if ( xDiff > 0) {
+                      if(activeCard.nextElementSibling!=null){
+                        activeCard.classList.remove('active');
+                        activeCard = activeCard.nextElementSibling; 
+                        activeCard.classList.add('active'); 
+                    }
+                } else {     
+                    if(activeCard.previousElementSibling!=null){
+                        activeCard.classList.remove('active');
+                        activeCard = activeCard.previousElementSibling;
+                        activeCard.classList.add('active');
+                    }                     
+                    
+                    /* right swipe */
+                }  
+                if (activeCard!=null){
+                    leftValue = 40 -activeCard.offsetLeft;
+                    cardContainer.style.left = leftValue + "px";    
+                }
+                xDown = null;
+                yDown = null;                                             
+            };
+        </script>
+    </body>
+</html>

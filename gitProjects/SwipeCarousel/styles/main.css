@@ -1,0 +1,177 @@
+html,body{
+	height: 100%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container{
+	height:100%;
+	background-color: #f2f2f3;
+	overflow: hidden;
+    position: absolute;
+    width: 100%;
+}
+
+.cardsContainer{
+	height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    position: absolute;
+    width: 500%;
+    left:0;
+    -webkit-transition: left 0.5s;
+	-moz-transition: left 0.5s;
+	transition: left 0.5s; 
+}
+
+
+.cardItem{
+	height: 85%;
+    width: 45%;
+	background-color: #f8f8f8;
+	display: inline-block;
+	box-shadow: 0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);
+	width:300px;
+	min-width:300px;
+	margin: 5px;
+	cursor:pointer;
+	vertical-align: middle;
+	-webkit-transition: height 0.5s;
+	-moz-transition: height 0.5s;
+	transition: height 0.5s; 
+	position: relative;
+	border-radius: 5px;
+	 
+}
+
+.active{
+	background-color: #f2f2f3;
+	height:100%;
+	 
+}
+
+.ratings{
+	letter-spacing: 2px;
+	margin:0px 3px;
+}
+.greenFont{
+	color:#2ecc71;
+}
+
+.cardItemTopPart{
+	height: 70%;
+    min-height:238px;
+}
+.cardTopBg{
+	background-color: #777;
+    background-image: url('http://images.media-allrecipes.com/userphotos/720x405/828805.jpg');
+    background-size: 300%;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+}
+.cardItemMiddlePart{
+	height: 15%;
+    background-color: #fff;
+    border-bottom: 1px solid #989898;
+    position: relative;
+    padding-left: 90px;
+}
+.likeButton{
+	position: absolute;
+    border-radius: 50%;
+    padding: 14px;
+    top: -34px;
+    background: #f2f2f3;
+    left: 15px;
+    font-size: 2em;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,.4);
+}
+.cardItemBottomPart{
+	height:15%;
+}
+.descContainer{
+	height: 100%;
+    overflow: auto;
+}
+
+.MoreInfo{
+	position:relative;
+	top: 25%;
+    height: 65%;
+}
+.transCont{
+	position:absolute;
+	height:100%;
+	width:100%;
+	color:#fff;
+	background-color: #222;
+	opacity:0.8;
+}
+.infoContainer{
+	height:100%;
+	color: #fff;
+    opacity: 1;
+    position:absolute;
+}
+
+.cardActions .fa{
+	font-size: 2em;
+	color: #B7B7B7;
+    text-shadow: 2px 2px #FFF;
+}
+.cardAction div{
+	height:50%;
+	position: relative;
+    top: 12px;
+}
+.actText{
+	font-weight: 600;
+	text-shadow: 2px 2px #FFF;
+}
+.transCont,.infoContainer{
+	min-height:150px;
+	max-height:190px;
+}
+.mi_row{
+	height:15%;
+	line-height: 33px;
+	padding: 5px 10px;
+	box-sizing: border-box;
+	font-size: 1em;
+}
+.mi_Title, .likes{
+	font-size:2em;
+    padding: 10px 10px;
+    color:#fff;
+    font-weight:600;
+    min-height: 52px;
+}
+.mi_Title{
+	min-height: 80px;
+}
+.likes{
+	float: right;
+	text-shadow: 2px 2px #222;
+	background-color: #222;
+	/* height: 28px; */
+	padding: 0;
+	line-height: 52px;
+	padding: 0px 10px;
+	opacity: 0.8;
+}
+.likes .greenFont{
+	margin-right: 3px;
+	font-size: 0.9em;
+}
+.cardAction{
+	display: inline-block;
+    width: 32%;
+    height: 100%;
+    margin: 0;
+    border-right: 1px solid #989898;
+    text-align: center;
+}
+.cardActions .cardAction:last-child{
+	border:0;
+}
